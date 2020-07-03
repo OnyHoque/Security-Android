@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Security-Android.iml" filepath="$PROJECT_DIR$/.idea/modules/Security-Android.iml" group="Security-Android" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Security-Android-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Security-Android-app.iml" group="Security-Android/app" />
       <module fileurl="file://$PROJECT_DIR$/SecurityPRO.iml" filepath="$PROJECT_DIR$/SecurityPRO.iml" group="SecurityPRO" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="SecurityPRO/app" />
     </modules>

@@ -9,26 +9,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Encryption_activity extends AppCompatActivity {
 
-    EditText original_msg, edit_en_pass, edit_en_encrypted_msg;
-    Button b_en, b_en_copy;
+    EditText original_msg, edit_en_pass;
+    Button btn_encrypt, btn_copy;
+    TextView view_encrypted_msg;
     Vibrator vibe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encryption_activity);
-        b_en = (Button)findViewById(R.id.b_en);
-        b_en_copy = (Button)findViewById(R.id.b_en_copy);
-        original_msg = (EditText)findViewById(R.id.edit_original_msg);
-        edit_en_pass = (EditText)findViewById(R.id.edit_en_pass);
-        edit_en_encrypted_msg = (EditText)findViewById(R.id.edit_en_encrypted_msg);
+        btn_encrypt = findViewById(R.id.btn_encryption_encrypt);
+        btn_copy = findViewById(R.id.btn_encryption_copy);
+        original_msg = findViewById(R.id.input_encryption_original_msg);
+        edit_en_pass = findViewById(R.id.input_encryption_password);
+        view_encrypted_msg = findViewById(R.id.view_encryption_encryptedMessage);
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
 
-        b_en.setOnClickListener(new View.OnClickListener() {
+        btn_encrypt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 vibe.vibrate(5);
@@ -36,7 +38,7 @@ public class Encryption_activity extends AppCompatActivity {
             }
         });
 
-        b_en_copy.setOnClickListener(new View.OnClickListener() {
+        btn_copy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 vibe.vibrate(5);
@@ -53,7 +55,7 @@ public class Encryption_activity extends AppCompatActivity {
         String hashed_password = AESUtils.secret_key_maker(password);
         try{
             String encrypted_message = AESUtils.encrypt(message, hashed_password);
-            edit_en_encrypted_msg.setText(encrypted_message);
+            view_encrypted_msg.setText(encrypted_message);
         }catch (Exception e){
 
         }
@@ -65,7 +67,7 @@ public class Encryption_activity extends AppCompatActivity {
 
     private void Copy_text()
     {
-        String str = edit_en_encrypted_msg.getText().toString();
+        String str = view_encrypted_msg.getText().toString();
         if(str.length() <1){
             Helper.MakeText(getApplicationContext(), "Drag the slider first.");
         }else{
