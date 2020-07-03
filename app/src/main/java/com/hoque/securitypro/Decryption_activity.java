@@ -3,6 +3,7 @@ package com.hoque.securitypro;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +15,9 @@ import java.util.StringTokenizer;
 
 public class Decryption_activity extends AppCompatActivity {
 
-    EditText de_encrypted_msg, de_password, show;
-    Button b_de, b_de_paste;
+    EditText input_encrypted_msg, input_password, input_show;
+    Button btn_decrypt, btn_paste;
+    Vibrator vibe;
 
     private String message = "", password = "";
     private String decryptedMSG = "";
@@ -25,21 +27,25 @@ public class Decryption_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decryption_activity);
 
-        b_de = (Button)findViewById(R.id.b_de);
-        show = (EditText)findViewById(R.id.edit_decypted_msg);
-        de_encrypted_msg = (EditText)findViewById(R.id.edit_de_encrypted_msg);
-        de_password = (EditText)findViewById(R.id.edit_de_password);
-        b_de_paste = (Button) findViewById(R.id.b_de_paste);
 
-        b_de.setOnClickListener(new View.OnClickListener() {
+        input_show = findViewById(R.id.edit_decypted_msg);
+        input_encrypted_msg = findViewById(R.id.edit_de_encrypted_msg);
+        input_password = findViewById(R.id.edit_de_password);
+        btn_decrypt = findViewById(R.id.b_de);
+        btn_paste = findViewById(R.id.b_de_paste);
+        vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
+
+        btn_decrypt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                vibe.vibrate(5);
                 Start_Decryption();
             }
         });
-        b_de_paste.setOnClickListener(new View.OnClickListener() {
+        btn_paste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                vibe.vibrate(5);
                 PasteText();
             }
         });
@@ -47,81 +53,19 @@ public class Decryption_activity extends AppCompatActivity {
 
     private void Start_Decryption()
     {
-        ViewData();
+        message = input_encrypted_msg.getText().toString();
+        password = input_password.getText().toString();
 
-        String a[] = message.split(" ");
-        int numeric[] = new int[a.length];
+        String hashed_password = AESUtils.secret_key_maker(password);
+        try{
+            String encrypted_message = AESUtils.decrypt(message, hashed_password);
+            input_show.setText(encrypted_message);
+        }catch (Exception e){
 
-        try
-        {
-            for(int i = 0 ; i < a.length; ++i)
-            {
-                String value = a[i];
-                numeric[i] = Integer.parseInt(value);
-            }
-        }
-        catch(Exception e)
-        {
-            Toast.makeText(getApplicationContext(),"Please put single space between characters", Toast.LENGTH_LONG).show();
-        }
-
-        char passC[] = password.toCharArray();
-
-        int passN[] = new int[passC.length];
-
-        for(int i = 0 ; i < passC.length ; ++i)
-            passN[i] = (int)passC[i];
-
-        int n = 0;
-
-        char msgBody[] = new char[numeric.length];
-
-        for(int i = 0 ; i < msgBody.length; ++i)
-        {
-            if(n < passN.length-1)
-            {
-                n++;
-            }
-            else
-            {
-                n=0;
-            }
-
-            if(i%2==1)
-                msgBody[i] = (char)(numeric[i] - passN[n]);
-            else
-                msgBody[i] = (char)(numeric[i] + passN[n]);
-        }
-
-        for(int i = 0; i < msgBody.length; ++i)
-        {
-            decryptedMSG += msgBody[i];
-        }
-
-
-        show.setText(decryptedMSG);
-        decryptedMSG = "";
-    }
-
-    private void ViewData()
-    {
-        try
-        {
-            message = de_encrypted_msg.getText().toString();
-        }
-        catch(Exception e)
-        {
-            Toast.makeText(getApplicationContext(),"Encrypted message field empty!", Toast.LENGTH_LONG).show();
-        }
-        try
-        {
-            password = de_password.getText().toString();
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(getApplicationContext(),"Password field empty!", Toast.LENGTH_LONG).show();
         }
     }
+
+
 
     private void PasteText()
     {
@@ -138,7 +82,7 @@ public class Decryption_activity extends AppCompatActivity {
 
             pasteData = item.getText().toString();
 
-            de_encrypted_msg.setText(pasteData);
+            input_show.setText(pasteData);
         }
 
     }

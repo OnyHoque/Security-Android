@@ -1,147 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hoque.securitypro.Encryption_activity">
 
-    <RelativeLayout
+
+
+    <TextView
+        android:text="Enter original text :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_en1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/edit_original_msg"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView_en1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="Enter your message here"
+        android:textCursorDrawable="@android:color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/edit_original_msg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/background_light"
+        android:layout_height="100sp" />
+
+    <TextView
+        android:text="Enter Password :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_en2"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_below="@+id/textView_en2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/edit_en_pass"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="Enter your password here"
+        android:textCursorDrawable="@android:color/black" />
+
+    <TextView
         android:layout_width="match_parent"
-        android:paddingBottom="1dp"
-        android:paddingLeft="1dp"
-        android:paddingRight="1dp"
-        android:paddingTop="1dp"
-        android:layout_height="match_parent">
+        android:id="@+id/textView7"
+        android:background="@android:color/background_light"
+        android:layout_below="@+id/edit_en_pass"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="100sp" />
 
+    <TextView
+        android:text="Encrypted message :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="6dp"
+        android:id="@+id/textView_en3"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-        <TextView
-            android:text="Enter original text :"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView_en1"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textSize="20sp"
-            android:textColor="@android:color/black" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_below="@+id/textView_en3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/edit_en_encrypted_msg"
+        android:hint="Encrypted message"
+        android:textCursorDrawable="@android:color/black"
+        android:layout_toLeftOf="@+id/b_en_copy"
+        android:layout_toStartOf="@+id/b_en_copy" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/edit_original_msg"
-            android:textSize="18sp"
-            android:layout_below="@+id/textView_en1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:hint="Enter your message here"
-            android:textCursorDrawable="@android:color/black" />
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/textView9"
+        android:background="@android:color/background_light"
+        android:layout_height="40sp"
+        android:layout_below="@+id/edit_en_encrypted_msg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_below="@+id/edit_original_msg"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/textView5"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="@android:color/background_light"
-            android:layout_height="100sp" />
+    <Button
+        android:text="Encrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView9"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/b_en"
+        />
 
-        <TextView
-            android:text="Enter Password :"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView_en2"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:layout_below="@+id/textView5"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+    <Button
+        android:text="copy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/b_en_copy"
+        android:layout_below="@+id/textView_en3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:layout_below="@+id/textView_en2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/edit_en_pass"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:hint="Enter your password here"
-            android:textCursorDrawable="@android:color/black" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:id="@+id/textView7"
-            android:background="@android:color/background_light"
-            android:layout_below="@+id/edit_en_pass"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_height="100sp" />
-
-        <TextView
-            android:text="Encrypted message :"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView7"
-            android:layout_marginTop="6dp"
-            android:id="@+id/textView_en3"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:layout_below="@+id/textView_en3"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/edit_en_encrypted_msg"
-            android:hint="Encrypted message"
-            android:textCursorDrawable="@android:color/black"
-            android:layout_toLeftOf="@+id/b_en_copy"
-            android:layout_toStartOf="@+id/b_en_copy" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:id="@+id/textView9"
-            android:background="@android:color/background_light"
-            android:layout_height="40sp"
-            android:layout_below="@+id/edit_en_encrypted_msg"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <Button
-            android:text="Encrypt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView9"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/b_en"
-            android:background="@color/navigationBarColor" />
-
-        <Button
-            android:text="copy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/b_en_copy"
-            android:background="@color/navigationBarColor"
-            android:layout_below="@+id/textView_en3"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>
