@@ -1,43 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="1dp"
-    android:paddingLeft="1dp"
-    android:paddingRight="1dp"
-    android:paddingTop="1dp"
+    android:background="@color/colorBackground"
+    android:gravity="center_horizontal"
     tools:context="com.hoque.securitypro.Home">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@color/FA_white"
+        android:elevation="2dp"
+        android:translationZ="2dp"
+        android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/btn_color"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:text="Home" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/btn_color"
-                android:textAlignment="center"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:padding="20dp"
-                android:text="Home" />
-
-            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
@@ -45,16 +37,22 @@
 
             <ImageView
                 android:id="@+id/img_btn1"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_margin="25dp"
+                android:elevation="2dp"
+                android:translationZ="2dp"
+                android:src="@drawable/home_icon_encrypt"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/img_btn2"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_margin="25dp"
+                android:elevation="2dp"
+                android:translationZ="2dp"
+                android:src="@drawable/home_icon_decrypt"
                 tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
 
@@ -66,18 +64,23 @@
 
             <ImageView
                 android:id="@+id/img_btn3"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_margin="25dp"
+                android:elevation="2dp"
+                android:translationZ="2dp"
+                android:src="@drawable/home_icon_generate"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/img_btn4"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_margin="25dp"
+                android:elevation="2dp"
+                android:translationZ="2dp"
+                android:src="@drawable/home_icon_information"
                 tools:srcCompat="@tools:sample/avatars" />
-        </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

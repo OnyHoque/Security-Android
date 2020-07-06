@@ -1,144 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:gravity="center_horizontal"
+    android:background="@color/colorBackground"
     tools:context="com.hoque.securitypro.Decryption_activity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:paddingBottom="1dp"
-        android:paddingLeft="1dp"
-        android:paddingRight="1dp"
-        android:paddingTop="1dp"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:padding="5dp"
+        android:gravity="center_horizontal"
+        android:background="@color/FA_white"
+        android:elevation="2dp"
+        android:translationZ="2dp"
+        android:orientation="vertical">
 
-
-        <TextView
-            android:text="Enter encrypted message :"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/textView_de1"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:layout_below="@+id/textView_de1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/edit_de_encrypted_msg"
-            android:hint="Enter your message here"
-            android:layout_toLeftOf="@+id/b_de_paste"
-            android:layout_toStartOf="@+id/b_de_paste"
-            android:textCursorDrawable="@android:color/black" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_below="@+id/edit_de_encrypted_msg"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/textView3"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_height="100sp"
-            android:background="@android:color/background_light" />
-
-        <TextView
-            android:text="Enter password :"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView_de2"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:layout_below="@+id/textView3"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:id="@+id/textView6"
-            android:layout_height="100sp"
-            android:background="@android:color/background_light"
-            android:layout_below="@+id/edit_de_password"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:id="@+id/textView5"
+                android:text="Decrypt your message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:padding="5dp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/btn_color"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/btn_color"
+                android:text="Encrypted message:" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_decryption_paste"
+                    android:text="Paste"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/button_design_1"
+                    android:textAllCaps="false"
+                    android:elevation="2dp"
+                    android:translationZ="2dp"
+                    android:stateListAnimator="@null"
+                    android:textColor="@color/FA_white" />
+
+                <EditText
+                    android:id="@+id/input_decryption_encrypted_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edittext"
+                    android:ems="10"
+                    android:hint="Enter encrypted msg here"
+
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/btn_color"
+                android:layout_marginTop="15dp"
+                android:text="Encryption key" />
+
+            <EditText
+                android:id="@+id/input_decryption_password"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="Enter decryption key here"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/btn_decryption_decrypt"
+                android:text="Decrypt"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button_design_1"
+                android:textAllCaps="false"
+                android:elevation="2dp"
+                android:translationZ="2dp"
+                android:stateListAnimator="@null"
+                android:textColor="@color/FA_white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_decryption_show_message"
             android:layout_width="match_parent"
-            android:id="@+id/textView8"
-            android:background="@android:color/background_light"
-            android:layout_below="@+id/edit_decypted_msg"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_height="40sp" />
-
-        <Button
-            android:text="Decrypt"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/b_de"
-            android:layout_below="@+id/textView8"
-            android:layout_centerHorizontal="true" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <TextView
-            android:text="Decrypted message :"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView_de3"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:layout_below="@+id/textView6"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            <TextView
+                android:id="@+id/view_decryption_original_msg"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/edit_decypted_msg"
-            android:hint="decrypted message"
-            android:layout_below="@+id/textView_de3"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textCursorDrawable="@android:color/black" />
+            <Button
+                android:id="@+id/btn_decryption_copy"
+                android:text="Copy"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button_design_1"
+                android:textAllCaps="false"
+                android:elevation="2dp"
+                android:translationZ="2dp"
+                android:stateListAnimator="@null"
+                android:textColor="@color/FA_white"/>
+        </LinearLayout>
+    </LinearLayout>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/edit_de_password"
-            android:hint="Enter your password here"
-            android:layout_below="@+id/textView_de2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textCursorDrawable="@android:color/black" />
-
-        <Button
-            android:text="Paste"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/b_de_paste"
-            android:layout_above="@+id/textView3"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>

@@ -3,61 +3,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/colorBackground"
     tools:context="com.hoque.securitypro.Encryption_activity">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:padding="5dp"
         android:gravity="center_horizontal"
+        android:background="@color/FA_white"
+        android:elevation="2dp"
+        android:translationZ="2dp"
         android:orientation="vertical">
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/textView5"
+            android:text="Encrypt your message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:padding="5dp"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/btn_color"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:orientation="vertical">
+            android:textColor="@color/btn_color"
+            android:text="Original message:" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Original message:" />
+        <EditText
+            android:id="@+id/input_encryption_original_msg"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:hint="Enter original msg here"
+            android:inputType="text" />
 
-            <EditText
-                android:id="@+id/input_encryption_original_msg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Enter original msg here"
-                android:inputType="textPersonName" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/btn_color"
+            android:text="Encryption key" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Encryption key" />
+        <EditText
+            android:id="@+id/input_encryption_password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:hint="Enter encryption key here"
+            android:inputType="text" />
 
-            <EditText
-                android:id="@+id/input_encryption_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Enter encryption key here"
-                android:inputType="textPersonName" />
-
-            <Button
-                android:id="@+id/btn_encryption_encrypt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Encrypt" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btn_encryption_encrypt"
+            android:text="Encrypt"
+            android:textAllCaps="false"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/button_design_1"
+            android:elevation="2dp"
+            android:translationZ="2dp"
+            android:textColor="@color/FA_white"
+            />
 
         <LinearLayout
-            android:id="@+id/layout_show_message"
+            android:id="@+id/layout_encryption_show_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -66,13 +87,23 @@
             <TextView
                 android:id="@+id/view_encryption_encryptedMessage"
                 android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_encryption_copy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Copy" />
+                android:text="Copy"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button_design_1"
+                android:textAllCaps="false"
+                android:elevation="2dp"
+                android:translationZ="2dp"
+                android:stateListAnimator="@null"
+                android:textColor="@color/FA_white"
+                />
         </LinearLayout>
     </LinearLayout>
 

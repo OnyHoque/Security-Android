@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class Encryption_activity extends AppCompatActivity {
     Button btn_encrypt, btn_copy;
     TextView view_encrypted_msg;
     Vibrator vibe;
+    LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class Encryption_activity extends AppCompatActivity {
         edit_en_pass = findViewById(R.id.input_encryption_password);
         view_encrypted_msg = findViewById(R.id.view_encryption_encryptedMessage);
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
+        linearLayout = findViewById(R.id.layout_encryption_show_message);
+        linearLayout.setVisibility(View.GONE);
 
         btn_encrypt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,15 +56,18 @@ public class Encryption_activity extends AppCompatActivity {
         String message = original_msg.getText().toString();
         String password = edit_en_pass.getText().toString();
 
-        String hashed_password = AESUtils.secret_key_maker(password);
-        try{
-            String encrypted_message = AESUtils.encrypt(message, hashed_password);
-            view_encrypted_msg.setText(encrypted_message);
-        }catch (Exception e){
-
+        if(message.length() > 0 && password.length() > 0) {
+            String hashed_password = AESUtils.secret_key_maker(password);
+            try {
+                String encrypted_message = AESUtils.encrypt(message, hashed_password);
+                linearLayout.setVisibility(View.VISIBLE);
+                view_encrypted_msg.setText(encrypted_message);
+            } catch (Exception e) {
+                Helper.MakeText(getApplicationContext(), "Ops!");
+            }
+        }else{
+            Helper.MakeText(getApplicationContext(), "Enter message and password first!");
         }
-
-
     }
 
 
@@ -72,7 +79,7 @@ public class Encryption_activity extends AppCompatActivity {
             Helper.MakeText(getApplicationContext(), "Drag the slider first.");
         }else{
             ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("Password", str);
+            ClipData clip = ClipData.newPlainText("Message", str);
             clipboard.setPrimaryClip(clip);
             Helper.MakeText(getApplicationContext(), "copied to clipboard.");
         }
